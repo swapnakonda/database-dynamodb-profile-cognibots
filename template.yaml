@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: AWS CloudFormation TO Create DynamoDB Table
+
+Resources:
+  ProfileTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: 'Profile'
+      AttributeDefinitions:
+        - AttributeName: 'email'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'email'
+          KeyType: 'HASH'
+      ProvisionedThroughput:
+        ReadCapacityUnits: '5'
+        WriteCapacityUnits: '5'
